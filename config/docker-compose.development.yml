@@ -1,0 +1,6 @@
+app:
+  volumes:
+    - .:/myapp
+web:
+  volumes_from:
+    - app

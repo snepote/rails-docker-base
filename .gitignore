@@ -43,3 +43,6 @@ bower.json
 
 # Mac files
 .DS_Store
+
+# Docker files
+docker-compose.override.yml
