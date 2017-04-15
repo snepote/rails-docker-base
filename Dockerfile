@@ -10,7 +10,7 @@ RUN apt-get install -y libqt4-webkit libqt4-dev xvfb
 RUN apt-get install -y nodejs
 
 # Define where our application will live inside the image
-ENV RAILS_ROOT /var/www/current
+ENV RAILS_ROOT /myapp
 RUN mkdir $RAILS_ROOT
 # Set our working directory inside the image
 WORKDIR $RAILS_ROOT
