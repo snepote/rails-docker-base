@@ -5,7 +5,7 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresq
 # nokogiri
 RUN apt-get install -y libxml2-dev libxslt1-dev
 # capybara-webkit
-RUN apt-get install -y libqt4-webkit libqt4-dev xvfb
+RUN apt-get install -y libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x xvfb libqt4-webkit libqt4-dev
 # JS runtime
 RUN apt-get install -y nodejs
 
