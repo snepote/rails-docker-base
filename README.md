@@ -16,9 +16,12 @@ docker-compose run web rake db:test:prepare
 
 docker exec -it railsdockerbase_web_1 /bin/bash
 
-# unit and integration
+# unit and integration tests
 bundle exec rspec --exclude-pattern "features/**/*_spec.rb"
 
-# Features specs
-xvfb-run -a bundle exec rspec --pattern "features/**/*_spec.rb"
+# Non-javascript features
+bundle exec rspec --pattern "features/**/*_spec.rb" --tag ~js
+
+# Features specs that requires javascript
+xvfb-run -a bundle exec rspec --pattern "features/**/*_spec.rb" --tag js
 ```

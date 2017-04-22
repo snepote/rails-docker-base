@@ -16,7 +16,12 @@ before_script:
   - bundle exec rake db:test:load
 
 script:
-  - bin/bundle exec rspec spec
+  # unit and integration tests
+  - bundle exec rspec --exclude-pattern "features/**/*_spec.rb"
+  # Non-javascript features
+  - bundle exec rspec --pattern "features/**/*_spec.rb" --tag ~js
+  # Features specs that requires javascript
+  - xvfb-run -a bundle exec rspec --pattern "features/**/*_spec.rb" --tag js
 
 # safelist
 branches:
