@@ -19,33 +19,24 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  # Common Capybara config
   Capybara.default_max_wait_time = 20
-
   Capybara.javascript_driver = :webkit
   Capybara::Webkit.configure do |config|
-    config.debug = true
-
+    config.debug = false
     # By default, requests to outside domains (anything besides localhost) will
     # result in a warning. Several methods allow you to change this behavior.
-
     # Silently return an empty 200 response for any requests to unknown URLs.
     config.block_unknown_urls
-
     # Allow pages to make requests to any URL without issuing a warning.
-    config.allow_unknown_urls
-
+    # config.allow_unknown_urls
     # Allow a specific domain without issuing a warning.
-    config.allow_url("example.com")
-
+    # config.allow_url("example.com")
     # Allow a specific URL and path without issuing a warning.
-    config.allow_url("example.com/some/path")
-
+    # config.allow_url("example.com/some/path")
     # Wildcards are allowed in URL expressions.
-    config.allow_url("*.example.com")
-
+    # config.allow_url("*.example.com")
     # Silently return an empty 200 response for any requests to the given URL.
-    config.block_url("example.com")
+    # config.block_url("example.com")
 
     # Timeout if requests take longer than 5 seconds
     config.timeout = 5
