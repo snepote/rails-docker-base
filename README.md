@@ -1,6 +1,8 @@
 # rails-docker-base
 A template to develop Rails applications and deploy using Docker
 
+[![Build Status](https://travis-ci.org/snepote/rails-docker-base.svg?branch=master)](https://travis-ci.org/snepote/rails-docker-base)
+
 * Ruby version: 2.4.1
 * Rails version: 5.0.2
 
