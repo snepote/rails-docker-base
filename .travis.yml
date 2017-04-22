@@ -1,6 +1,6 @@
 language: ruby
 cache: bundler
-rvm: .ruby-version
+rvm: default
 addons:
   postgresql: '9.5'
 
