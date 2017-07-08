@@ -26,8 +26,11 @@ docker-compose run web rake db:migrate
 #### Setup
 `docker-compose run web rake db:test:prepare`
 #### unit and integration tests
-`bundle exec rspec --exclude-pattern "features/**/*_spec.rb"`
+`docker-compose run web bundle exec rspec --exclude-pattern "features/**/*_spec.rb"`
 #### non-javascript features
-`bundle exec rspec --pattern "features/**/*_spec.rb" --tag ~js`
+`docker-compose run web bundle exec rspec --pattern "features/**/*_spec.rb" --tag ~js`
 #### features specs that requires javascript
-`xvfb-run -a bundle exec rspec --pattern "features/**/*_spec.rb" --tag js`
+##### with Webkit
+`docker-compose run web xvfb-run -a bundle exec rspec --pattern "features/**/*_spec.rb" --tag js`
+##### with Chrome
+`docker-compose run web bundle exec rspec --pattern "features/**/*_spec.rb" --tag js`

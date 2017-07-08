@@ -39,6 +39,7 @@ group :test do
   gem 'capybara-webkit',        '~> 1.11', '>= 1.11.1'
   gem 'timecop',                '~> 0.8.1'
   gem 'rubocop',                '~> 0.42.0'
+  gem 'selenium-webdriver',     '~> 2.53', '>= 2.53.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

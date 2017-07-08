@@ -12,13 +12,23 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
 
-  Capybara.default_max_wait_time = 20
-  Capybara.javascript_driver = :webkit
+  Capybara.default_max_wait_time = 5
+
+  Capybara.register_driver(:headless_chrome) do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w[headless disable-gpu no-sandbox] }
+    )
+
+    Capybara::Selenium::Driver.new(
+      app,
+      browser: :chrome,
+      desired_capabilities: capabilities
+    )
+  end
+
+  Capybara.javascript_driver = :headless_chrome
   Capybara::Webkit.configure do |config|
     config.debug = false
-    # By default, requests to outside domains (anything besides localhost) will
-    # result in a warning. Several methods allow you to change this behavior.
-    # Silently return an empty 200 response for any requests to unknown URLs.
     config.block_unknown_urls
     # Allow pages to make requests to any URL without issuing a warning.
     # config.allow_unknown_urls
