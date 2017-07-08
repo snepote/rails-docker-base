@@ -8,6 +8,13 @@ RUN apt-get install -y libxml2-dev libxslt1-dev
 RUN apt-get install -y libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x xvfb libqt4-webkit libqt4-dev
 # JS runtime
 RUN apt-get install -y nodejs
+# Chromer v59+
+RUN apt-get update -y --fix-missing
+RUN apt-get install wget -y
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+RUN apt-get update -y
+RUN apt-get install google-chrome-stable -y
 
 # Define where our application will live inside the image
 ENV RAILS_ROOT /myapp
